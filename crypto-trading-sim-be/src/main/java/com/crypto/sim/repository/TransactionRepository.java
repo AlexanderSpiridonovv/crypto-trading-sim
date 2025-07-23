@@ -45,62 +45,10 @@ public class TransactionRepository {
 
             ps.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace(); // for debugging
+            e.printStackTrace();
             throw new RuntimeException("Failed to save transaction", e);
         }
     }
-
-
-    public List<Transaction> findByUserId(int userId) {
-        List<Transaction> transactions = new ArrayList<>();
-        String sql = "SELECT * FROM transactions WHERE user_id = ? ORDER BY timestamp DESC";
-        try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, userId);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                transactions.add(mapRowToTransaction(rs));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Failed to fetch transactions by user", e);
-        }
-        return transactions;
-    }
-
-    public List<Transaction> findByUserIdAndCryptoId(int userId, int cryptoId) {
-        List<Transaction> transactions = new ArrayList<>();
-        String sql = """
-                SELECT * FROM transactions
-                WHERE user_id = ? AND crypto_id = ?
-                ORDER BY timestamp DESC
-                """;
-        try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, userId);
-            ps.setInt(2, cryptoId);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                transactions.add(mapRowToTransaction(rs));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Failed to fetch transactions by user and crypto", e);
-        }
-        return transactions;
-    }
-
-    private Transaction mapRowToTransaction(ResultSet rs) throws SQLException {
-        return new Transaction(
-                rs.getInt("id"),
-                rs.getInt("user_id"),
-                rs.getInt("crypto_id"),
-                rs.getDouble("quantity"),
-                rs.getDouble("price_at_transaction"),
-                rs.getTimestamp("timestamp").toLocalDateTime(),
-                rs.getString("type"),
-                rs.getBoolean("profitable")
-        );
-    }
-
 
 
     public List<TransactionDTO> findDetailedByUserId(int userId) {

@@ -18,6 +18,7 @@ public class CryptoRepository {
         this.dataSource = dataSource;
     }
 
+    //for future improvements
     public boolean save(Cryptocurrency crypto) {
         String sql = "INSERT INTO cryptocurrencies (symbol, name) VALUES (?, ?)";
         try (Connection conn = dataSource.getConnection();
@@ -48,6 +49,7 @@ public class CryptoRepository {
         return null;
     }
 
+    //for future use
     public List<Cryptocurrency> findAll() {
         List<Cryptocurrency> list = new ArrayList<>();
         String sql = "SELECT * FROM cryptocurrencies";
