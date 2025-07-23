@@ -15,7 +15,6 @@ public class BuyRequest {
     @Min(value = 0, message = "Quantity must be greater than 0")
     private double quantity;
 
-    // Getters and setters
     public Integer getUserId() {
         return userId;
     }

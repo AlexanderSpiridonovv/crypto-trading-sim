@@ -26,27 +26,21 @@ public class SellRequest {
     public Integer getHoldingId() {
         return holdingId;
     }
-
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
-
     public void setHoldingId(Integer holdingId) {
         this.holdingId = holdingId;
     }
-
     public String getSymbol() {
         return symbol;
     }
-
     public void setSymbol(String symbol) {
         this.symbol = symbol;
     }
-
     public double getQuantity() {
         return quantity;
     }
-
     public void setQuantity(double quantity) {
         this.quantity = quantity;
     }

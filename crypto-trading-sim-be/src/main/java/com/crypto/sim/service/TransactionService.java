@@ -30,12 +30,4 @@ public class TransactionService {
         return transactionRepository.findDetailedByUserId(userId);
     }
 
-
-    public List<Transaction> getRawTransactionsByUserId(int userId) {
-        return transactionRepository.findByUserId(userId);
-    }
-
-    public List<Transaction> getRawTransactionsByUserIdAndCryptoId(int userId, int cryptoId) {
-        return transactionRepository.findByUserIdAndCryptoId(userId, cryptoId);
-    }
 }

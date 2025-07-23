@@ -36,23 +36,6 @@ public class HoldingRepository {
         }
     }
 
-    public List<Holding> findByUserIdAndCryptoId(int userId, int cryptoId) {
-        List<Holding> holdings = new ArrayList<>();
-        String sql = "SELECT * FROM holdings WHERE user_id = ? AND crypto_id = ?";
-        try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, userId);
-            ps.setInt(2, cryptoId);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                holdings.add(mapRowToHolding(rs));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Failed to fetch holdings", e);
-        }
-        return holdings;
-    }
-
     public List<HoldingWithSymbolDTO> findByUserId(int userId) {
         List<HoldingWithSymbolDTO> holdings = new ArrayList<>();
         String sql = """

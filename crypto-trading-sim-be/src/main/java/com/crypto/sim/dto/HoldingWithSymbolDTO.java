@@ -15,7 +15,6 @@ public class HoldingWithSymbolDTO {
         this.symbol = symbol;
     }
 
-    // Getters and setters
 
     public int getId() {
         return id;

@@ -46,7 +46,6 @@ public class UserService {
         return true;
     }
 
-
     public User loginUser(String username, String password) {
         User user = userRepository.findByUsername(username);
         if (user == null) return null;

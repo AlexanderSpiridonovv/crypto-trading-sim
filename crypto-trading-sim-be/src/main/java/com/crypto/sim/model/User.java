@@ -22,26 +22,21 @@ public class User {
     public String getUsername() {
         return username;
     }
-
     public double getBalance() {
         return balance;
     }
-
     public void setId(int id) {
         this.id = id;
     }
-
     public void setUsername(String username) {
         this.username = username;
     }
-
     public void setBalance(double balance) {
         this.balance = balance;
     }
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
