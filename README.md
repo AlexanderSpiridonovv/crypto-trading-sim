@@ -1,6 +1,6 @@
-# 💹 Cryptocurrency Trading Simulator
+# Cryptocurrency Trading Simulator
 
-A full-stack web application that simulates cryptocurrency trading in real-time. Users can register, log in, buy and sell cryptocurrencies using FIFO logic, and track their live holdings and profitability.
+A full-stack web application that simulates cryptocurrency trading in real-time. Users can register, log in, buy and sell cryptocurrencies, track their live holdings and view their transactions.
 
 ---
 
