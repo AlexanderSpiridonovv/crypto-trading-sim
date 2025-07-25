@@ -129,6 +129,7 @@ Access the app at: [http://localhost:5173](http://localhost:5173)
 
 ## 🚀 Future Improvements
 
+- Update the UI
 - JWT-based authentication and session management
 - Docker support (Dockerfile + docker-compose)
 - RESTful pagination for holdings and transactions
